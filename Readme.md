@@ -10,34 +10,6 @@ The project is structured into frontend and backend components with a focus on c
 
 ## Features
 
-### Must-Have Features:
-1. **Data Conversion and Storage**: 
-   - Convert the raw data file [diem_thi_thpt_2024.csv](./dataset/diem_thi_thpt_2024.csv) into a structured database format using migration and seeder scripts.
-   
-2. **Score Check**:
-   - Feature to check scores by entering the registration number.
-   
-3. **Report Generation**:
-   - Generate a report with 4 score levels: 
-     - >= 8 points
-     - 8 > points >= 6
-     - 6 > points >= 4
-     - < 4 points
-   - Provide statistics (chart) on the number of students per score level for each subject.
-   
-4. **Top 10 Students**:
-   - List the top 10 students from group A based on subjects: Math, Physics, and Chemistry.
-
-### Nice-to-Have Features:
-- **Responsive Design**: 
-   - The application should be responsive and look good on all devices (desktops, tablets, mobile phones).
-   
-- **Docker Setup**:
-   - Dockerize the project for easy deployment.
-
-- **Deployment**:
-   - Deploy the application to a cloud service provider to make it live.
-
 ## Technologies Used
 
 ### Frontend:
