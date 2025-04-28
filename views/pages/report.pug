@@ -1,0 +1,22 @@
+extends ../layouts/default.pug
+
+block main
+    .h-96(class='max-w-[800px]')
+        h2.text-lg.font-semibold.text-gray-800.mb-2 Statistics of the number of students with scores
+        form(action="/reports", method="get").mb-4      
+            label(for='subject-select') Select the subject:                
+            select#subject-select.ml-3.px-1(name='subject_indx' class='focus:outline-none focus:ring-0 focus:border-transparent')
+                option(value=0) --None--
+                each s in subjects 
+                    if (s.id==sid)
+                        option(selected value=s.id) #{s.name}
+                    else 
+                        option(value=s.id) #{s.name}
+            button.ml-4.px-4.py-1.bg-blue-500.text-white.rounded(class="hover:bg-blue-600", type='submit') Apply
+        div.chart(scores=scores)
+
+       
+
+block script
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+    script(src="/js/report.js") 

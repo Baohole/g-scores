@@ -12,11 +12,11 @@ export const showDashBoard = async (req: Request, res: Response): Promise<any> =
         if (sbd) {
             const student = await Student.findOne({
                 sbd: sbd
-            })
+            });
             if (student) {
                 let scores = await Score.aggregate([{
-                    $match: { student: student.id }
-                },]);
+                    $match: { student: student._id }
+                }]);
 
                 sScores = await Promise.all(
                     scores.map(async (s) => {

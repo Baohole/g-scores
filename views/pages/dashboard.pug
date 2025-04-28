@@ -1,0 +1,18 @@
+extends ../layouts/default.pug
+
+block main
+    div
+        h1.text-xl.font-semibold.text-gray-800.mb-3 Top 10 students of group A
+        .flex.justify-center.items-center.mb-8
+        table.min-w-full.bg-white.border.border-gray-200.shadow-md.rounded-lg.overflow-hidden
+            thead
+                tr.bg-gray-100
+                    th.py-3.px-6.text-left.text-sm.font-medium.text-gray-600.uppercase.tracking-wider Rank
+                    th.py-3.px-6.text-left.text-sm.font-medium.text-gray-600.uppercase.tracking-wider Student ID
+                    th.py-3.px-6.text-left.text-sm.font-medium.text-gray-600.uppercase.tracking-wider Score
+            tbody
+                each student, index in topStudents
+                    tr(class=(index % 2 === 0) ? 'bg-white' : 'bg-gray-50')
+                    td.py-4.px-6.text-sm.text-gray-700.border-b.border-gray-200 #{index + 1}
+                    td.py-4.px-6.text-sm.text-gray-700.border-b.border-gray-200 #{student.sbd}
+                    td.py-4.px-6.text-sm.font-medium.text-gray-900.border-b.border-gray-200 #{student.score}

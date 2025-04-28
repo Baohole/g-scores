@@ -21,9 +21,9 @@ const showDashBoard = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         const subjects = yield subject_model_1.default.find({
             name: { $in: ["Math", "Physics", "Chemistry"] }
         });
-        const mathScores = yield scores_model_1.default.aggregate([{ $match: { subject: subjects[0].id } }]);
-        const Pscores = yield scores_model_1.default.aggregate([{ $match: { subject: subjects[1].id } }]);
-        const chemistryScores = yield scores_model_1.default.aggregate([{ $match: { subject: subjects[2].id } }]);
+        const mathScores = yield scores_model_1.default.aggregate([{ $match: { subject: subjects[0]._id } }]);
+        const Pscores = yield scores_model_1.default.aggregate([{ $match: { subject: subjects[1]._id } }]);
+        const chemistryScores = yield scores_model_1.default.aggregate([{ $match: { subject: subjects[2]._id } }]);
         const scores = {};
         for (const s of [...mathScores, ...Pscores, ...chemistryScores]) {
             const stnt = yield student_model_1.default.findOne({ _id: s.student });

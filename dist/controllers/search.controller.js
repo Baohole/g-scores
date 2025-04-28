@@ -26,8 +26,8 @@ const showDashBoard = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             });
             if (student) {
                 let scores = yield scores_model_1.default.aggregate([{
-                        $match: { student: student.id }
-                    },]);
+                        $match: { student: student._id }
+                    }]);
                 sScores = yield Promise.all(scores.map((s) => __awaiter(void 0, void 0, void 0, function* () {
                     const subject = yield subject_model_1.default.findById(s.subject).lean();
                     return {

@@ -44,11 +44,12 @@ export const showReport = async (req: Request, res: Response): Promise<any> => {
         if (sid) {
             const sScores = await Score.aggregate([
                 {
-                    $match: { subject: sid }
+                    $match: { subject: new mongoose.Types.ObjectId(sid) }
                 }
             ]);
             scores = assignLevelsToScores(sScores.map(s => s.score))
         }
+
 
         let subjects;
         try {

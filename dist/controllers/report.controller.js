@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.showReport = void 0;
 const scores_model_1 = __importDefault(require("../models/scores.model"));
 const subject_model_1 = __importDefault(require("../models/subject.model"));
+const mongoose_1 = __importDefault(require("mongoose"));
 var Levels;
 (function (Levels) {
     Levels["excellent"] = "Excellent";
@@ -52,7 +53,7 @@ const showReport = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         if (sid) {
             const sScores = yield scores_model_1.default.aggregate([
                 {
-                    $match: { subject: sid }
+                    $match: { subject: new mongoose_1.default.Types.ObjectId(sid) }
                 }
             ]);
             scores = assignLevelsToScores(sScores.map(s => s.score));

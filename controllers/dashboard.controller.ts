@@ -10,9 +10,9 @@ export const showDashBoard = async (req: Request, res: Response): Promise<any> =
         const subjects = await Subject.find({
             name: { $in: ["Math", "Physics", "Chemistry"] }
         });
-        const mathScores = await Score.aggregate([{ $match: { subject: subjects[0].id } }]);
-        const Pscores = await Score.aggregate([{ $match: { subject: subjects[1].id } }])
-        const chemistryScores = await Score.aggregate([{ $match: { subject: subjects[2].id } }]);
+        const mathScores = await Score.aggregate([{ $match: { subject: subjects[0]._id } }]);
+        const Pscores = await Score.aggregate([{ $match: { subject: subjects[1]._id } }])
+        const chemistryScores = await Score.aggregate([{ $match: { subject: subjects[2]._id } }]);
         const scores: { [key: string]: number } = {};
         for (const s of [...mathScores, ...Pscores, ...chemistryScores]) {
             const stnt = await Student.findOne({ _id: s.student });
