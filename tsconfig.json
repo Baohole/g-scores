@@ -5,7 +5,7 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
-        "outDir": "src",
+        "outDir": "dist",
         "target": "ES6",
         "esModuleInterop": true
     }
